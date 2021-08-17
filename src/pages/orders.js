@@ -21,7 +21,7 @@ function Orders({ orders }) {
         )}
         <div className="mt-5 space-y-4">
           {orders?.map((order) => (
-            <Order map={order.id} {...order} />
+            <Order key={order.id} {...order} />
           ))}
         </div>
       </main>

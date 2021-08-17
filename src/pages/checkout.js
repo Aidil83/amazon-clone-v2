@@ -8,7 +8,9 @@ import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
-const stripePromise = loadStripe(process.env.stripe_public_key);
+// const public_key = process.env.stripe_public_key.toString();
+const stripe_pk = process.env.stripe_public_key.toString();
+const stripePromise = loadStripe(stripe_pk);
 
 function Checkout() {
   const items = useSelector(selectItems);
@@ -77,7 +79,7 @@ function Checkout() {
             <>
               <h2 className="whitespace-nowrap">
                 Subtotal ({items.length} items):
-                <span class="font-bold">
+                <span className="font-bold">
                   <Currency quantity={total} currency="USD" />
                 </span>
               </h2>
@@ -86,7 +88,7 @@ function Checkout() {
                 role="link"
                 onClick={createCheckoutSession}
                 disabled={!session}
-                class={`button mt-2 ${
+                className={`button mt-2 ${
                   !session &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
                 }`}
