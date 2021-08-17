@@ -8,9 +8,7 @@ import Currency from "react-currency-formatter";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
-// const public_key = process.env.stripe_public_key.toString();
-const stripe_pk = process.env.stripe_public_key.toString();
-const stripePromise = loadStripe(stripe_pk);
+const stripePromise = loadStripe(process.env.stripe_public_key);
 
 function Checkout() {
   const items = useSelector(selectItems);
