@@ -1,5 +1,4 @@
 import moment from "moment";
-import { Fragment } from "react";
 import Currency from "react-currency-formatter";
 
 function Order({ id, amount, amountShipping, items, timestamp, images }) {

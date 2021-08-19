@@ -53,20 +53,8 @@ function Checkout() {
                 : "Shopping Basket"}
             </h1>
 
-            {items.map((item, i) => {
-              return (
-                <CheckoutProduct
-                  key={i}
-                  id={item.id}
-                  title={item.title}
-                  price={item.price}
-                  rating={item.rating}
-                  description={item.description}
-                  category={item.category}
-                  image={item.image}
-                  hasPrime={item.hasPrime}
-                />
-              );
+            {items.map((item) => {
+              return <CheckoutProduct key={item.id} {...item} />;
             })}
           </div>
         </div>
